@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useReducer } from 'react'
+import "./App.css"
+import Cart from './components/Cart'
+import Product from './components/Product'
+import { cartReducer } from './reducer/cartReducer'
 
 function App() {
+  const [state, dispatch] = useReducer(cartReducer, {
+    products: [], cart: []
+  })
+
+  const fetchProducts = async () => {
+    let res = await fetch('http://dummyjson.com/products')
+    let { products } = await res.json()
+    dispatch({ type: 'ADD_PRODUCTS', payload: products })
+  }
+
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app-container'>
+      <Product state={state} dispatch={dispatch} />
+      <Cart state={state} dispatch={dispatch} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,38 +1,121 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  border-radius: .2rem;
+  display: block;
+}
+
+/* app.js */
+.app-container{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* product.js */
+.product-wrapper{
+  flex: 3;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-single{
+  padding: .5rem;
+  border-radius: .2rem;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* gap: .2rem; */
+  margin: .2rem;
+  border: 1px solid rgb(140, 139, 139);
+}
+
+.product-single img{
+  width: 100%;
+  height: 100%;
+}
+
+.product-single .price-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: .2rem;
+  margin-top: .2rem;
+}
+
+.btn-container{
+  width: 100%;
+}
+
+.btn{
+  margin-bottom: .2rem;
+  margin-top: .2rem;
+  padding: .3rem;
+  display: block;
+  border: none;
+  border-radius: .2rem;
+  cursor: pointer;
+}
+
+.danger{
+  color: white;
+  width: 100%;
+  background-color: red;
+}
+
+.green{
+  width: 100%;
+  color: white;
+  background-color: green;
+}
+
+/* cart.js */
+.cart-wrapper{
+  flex: 1;
+  background-color: lightgray;
+  border-radius: .2rem;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding: .2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.cart-wrapper h1{
+  text-align: center;
+  margin-top: .7rem;
+  margin-bottom: .7rem;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart-single{
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr;
+  padding: .3rem;
+  border-radius: .2rem;
+  gap: .3rem;
+  margin-top: .5rem;
+  background-color: white;
+  margin-bottom: .4rem;
+}
+
+.cart-single-title{
+  align-self: start;
+  padding: .4rem;
+  justify-self: start;
+}
+
+.cart-qty{
+  justify-self: end;
 }
